@@ -1,0 +1,50 @@
+:root {
+  --black: rgb(44, 44, 44);
+  --dial-transition: all cubic-bezier(0.215, 0.610, 0.355, 1) 400ms;
+}
+
+.container {
+  padding: 1rem 2rem;
+  border: 1px solid black;
+}
+
+.collapse {
+  display: grid;
+  transition: var(--dial-transition);
+}
+
+.collapse>div {
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dial {
+  display: grid;
+  place-items: center;
+  position: relative;
+  transition: var(--dial-transition);
+  margin-left: 10px;
+}
+
+.dial span {
+  position: absolute;
+  border-radius: 2px;
+  height: 4px;
+  width: 18px;
+  background-color: var(--black);
+  transition: var(--dial-transition);
+}
+
+.dial>span:nth-child(1) {
+  rotate: 90deg;
+}
+
+.content {
+  margin-top: .75rem
+}
