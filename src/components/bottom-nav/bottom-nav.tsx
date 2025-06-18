@@ -1,4 +1,8 @@
-export function GlassyBottomNav() {
+import { UpstrsLogo } from "../../img/upstrs_clean";
+import { CV_LINK } from "../../constants";
+import { Link } from "react-router";
+
+export function BottomNav() {
   return (
     <div className="navbar bg-base-300/70 fixed bottom-0 shadow-sm backdrop-blur-2xl">
       <div className="navbar-start">
@@ -25,22 +29,25 @@ export function GlassyBottomNav() {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 font-bold shadow"
           >
             <li>
-              <a className="text-lg">Vita</a>
+              <a className="text-lg" href="/#skills">
+                Skills
+              </a>
             </li>
             <li>
-              <a className="text-lg">About</a>
+              <Link className="text-lg" to="/imprint">
+                Imprint
+              </Link>
             </li>
             <li>
-              <a className="text-lg">Imprint</a>
-            </li>
-            <li>
-              <a className="text-lg">Downloads (CV)</a>
+              <a className="text-lg" href={CV_LINK} target="_blank">
+                Download CV
+              </a>
             </li>
           </ul>
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-xl">upstrs.io</a>
+        <UpstrsLogo className="size-10" />
       </div>
       <div className="navbar-end">
         {/* <button className="btn btn-ghost btn-circle">

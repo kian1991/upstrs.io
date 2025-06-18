@@ -12,16 +12,13 @@ export const Cursor = () => {
     const listener = (e: MouseEvent) => {
       setCursorPosition([e.clientX, e.clientY]);
 
-      // debounce first
-      if (debounce.current !== null) clearTimeout(debounce.current);
+      // // debounce first
+      // if (debounce.current !== null) clearTimeout(debounce.current);
 
       // debounce.current = setTimeout(() => {
       //   console.log(e);
       //   if (!cursorRef.current) return;
-      //   if (
-      //     e.target.tagName === "A" &&
-      //     cursorRef.current.style.height !== "0px"
-      //   ) {
+      //   if (e.target.tagName === "A") {
       //     cursorRef.current.style.height = "0px";
       //     cursorRef.current.style.width = "0px";
       //   } else if (
@@ -40,10 +37,12 @@ export const Cursor = () => {
   return (
     <div
       ref={cursorRef}
-      className="pointer-events-none absolute grid h-8 w-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-black/10"
+      className="pointer-events-none absolute grid h-8 w-8 place-items-center rounded-full bg-black/10"
       style={{
         left: cursorPosition[0],
         top: cursorPosition[1],
+        opacity: 1,
+        transform: "translate(-50%, -50%) scale(1)",
       }}
     >
       <div className="h-6 w-6 rounded-full bg-black/20"></div>

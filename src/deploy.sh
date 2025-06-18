@@ -1,0 +1,1 @@
+SSH_PATH="/var/www/vhosts/upstrs.io/httpdocs/"

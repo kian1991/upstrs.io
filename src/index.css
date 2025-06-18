@@ -1,19 +1,18 @@
 @import "tailwindcss";
 
-
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark, cupcake;
 }
 
-* {
+/* * {
   cursor: none;
-}
+} */
 
-a {
+.link {
   transition: all 200ms ease-in;
 }
 
-a:hover {
+.link:hover {
   cursor: none;
   background: #f8c90c6d;
   border-radius: 15px;

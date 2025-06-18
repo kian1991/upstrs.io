@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import classes from './navbar.module.css';
-import { cn } from '../../lib/utils';
+import { useState } from "react";
+import classes from "./navbar.module.css";
+import { cn } from "../../lib/utils";
 
 type Props = {
   links: {
@@ -14,13 +14,14 @@ export function Navbar({ links }: Props) {
   return (
     <nav>
       <div
-        className={cn(classes['hamburger-icon'], isOpen && classes.open)}
-        onClick={() => setIsOpen(!isOpen)}>
+        className={cn(classes["hamburger-icon"], isOpen && classes.open)}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <ul className={classes['nav-links']}>
+      <ul className={classes["nav-links"]}>
         <div>
           {links.map((link) => (
             <li key={link.name}>
