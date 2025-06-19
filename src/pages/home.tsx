@@ -2,7 +2,7 @@ import Marquee from "react-fast-marquee";
 import { Box } from "../components/ui/box";
 import { SOCIAL } from "../constants";
 import { UpstrsStripe } from "../img/stripe";
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef } from "react";
 import Accordion, { type AccordionHandle } from "../components/ui/accordion";
 import { UpstrsLogo } from "../img/upstrs_clean";
 import { TechItem, type TechItemProps } from "./components/tech-item";
@@ -168,10 +168,10 @@ export const Home = () => {
         <SocialBar />
       </header>
 
-      <div id="hero">
-        <UpstrsLogo className="fill-base-content/40 h-24 w-fit" />
+      <div id="hero" className="">
+        <UpstrsLogo className="fill-base-content/40 sticky top-28 h-24 w-fit" />
 
-        <div className="mt-2 flex w-full flex-col text-end text-xl uppercase sm:text-3xl">
+        <div className="sticky top-28 mt-2 flex w-full flex-col text-end text-xl uppercase sm:text-3xl">
           <span className="font-thin">
             Let's <span className="font-extrabold">create</span>
           </span>
@@ -224,7 +224,9 @@ export const Home = () => {
       <div id="skills" className="grid gap-2 sm:grid-cols-2">
         <Box title="Hardskills">
           <Accordion
-            ref={(el) => (accordionRefs.current[0] = el!)}
+            ref={(el) => {
+              accordionRefs.current[0] = el!;
+            }}
             className="pe-4"
             header={
               <span className="bg-base-content/10 text-base-content mb-2 rounded px-2 py-0.5">
@@ -241,7 +243,9 @@ export const Home = () => {
           </Accordion>
 
           <Accordion
-            ref={(el) => (accordionRefs.current[1] = el!)}
+            ref={(el) => {
+              accordionRefs.current[1] = el!;
+            }}
             className="pe-4"
             header={
               <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
@@ -257,7 +261,9 @@ export const Home = () => {
             </div>
           </Accordion>
           <Accordion
-            ref={(el) => (accordionRefs.current[2] = el!)}
+            ref={(el) => {
+              accordionRefs.current[2] = el!;
+            }}
             className="pe-4"
             header={
               <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
@@ -274,7 +280,9 @@ export const Home = () => {
           </Accordion>
 
           <Accordion
-            ref={(el) => (accordionRefs.current[3] = el!)}
+            ref={(el) => {
+              accordionRefs.current[3] = el!;
+            }}
             className="pe-4"
             header={
               <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
@@ -291,7 +299,9 @@ export const Home = () => {
           </Accordion>
 
           <Accordion
-            ref={(el) => (accordionRefs.current[4] = el!)}
+            ref={(el) => {
+              accordionRefs.current[4] = el!;
+            }}
             className="pe-4"
             header={
               <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
@@ -307,7 +317,9 @@ export const Home = () => {
           </Accordion>
 
           <Accordion
-            ref={(el) => (accordionRefs.current[5] = el!)}
+            ref={(el) => {
+              accordionRefs.current[5] = el!;
+            }}
             className="pe-4"
             header={
               <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
@@ -325,7 +337,9 @@ export const Home = () => {
           </Accordion>
 
           <Accordion
-            ref={(el) => (accordionRefs.current[6] = el!)}
+            ref={(el) => {
+              accordionRefs.current[6] = el!;
+            }}
             className="pe-4"
             header={
               <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
@@ -342,7 +356,9 @@ export const Home = () => {
           </Accordion>
 
           <Accordion
-            ref={(el) => (accordionRefs.current[7] = el!)}
+            ref={(el) => {
+              accordionRefs.current[7] = el!;
+            }}
             className="pe-4"
             header={
               <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
@@ -359,7 +375,9 @@ export const Home = () => {
         </Box>
         <Box title="Softskills">
           <Accordion
-            ref={(el) => (accordionRefs.current[8] = el!)}
+            ref={(el) => {
+              accordionRefs.current[8] = el!;
+            }}
             className="pe-4"
             header={
               <span className="bg-base-content/10 text-base-content mb-2 rounded px-2 py-0.5">
@@ -378,7 +396,9 @@ export const Home = () => {
           </Accordion>
 
           <Accordion
-            ref={(el) => (accordionRefs.current[9] = el!)}
+            ref={(el) => {
+              accordionRefs.current[9] = el!;
+            }}
             className="pe-4"
             header={
               <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
@@ -395,7 +415,9 @@ export const Home = () => {
           </Accordion>
 
           <Accordion
-            ref={(el) => (accordionRefs.current[10] = el!)}
+            ref={(el) => {
+              accordionRefs.current[10] = el!;
+            }}
             className="pe-4"
             header={
               <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
@@ -411,7 +433,9 @@ export const Home = () => {
           </Accordion>
 
           <Accordion
-            ref={(el) => (accordionRefs.current[11] = el!)}
+            ref={(el) => {
+              accordionRefs.current[11] = el!;
+            }}
             className="pe-4"
             header={
               <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
