@@ -3,10 +3,7 @@
   --dial-transition: all cubic-bezier(0.215, 0.610, 0.355, 1) 400ms;
 }
 
-.container {
-  padding: 1rem 2rem;
-  border: 1px solid black;
-}
+
 
 .collapse {
   display: grid;

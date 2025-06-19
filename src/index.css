@@ -4,12 +4,20 @@
   themes: light --default, dark --prefersdark, cupcake;
 }
 
-/* * {
-  cursor: none;
-} */
+:root {
+  --custom-accent: #5E9593
+}
+
+* {
+  caret-color: transparent;
+
+}
 
 .link {
   transition: all 200ms ease-in;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
 }
 
 .link:hover {
@@ -17,5 +25,16 @@
   background: #f8c90c6d;
   border-radius: 15px;
   padding: 1px 5px;
-  /* padding: 7px 10px; */
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.3em;
+  width: 100%;
+  height: 0.6em;
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'><path d='M0,5 Q0,0 900,5' stroke='%235E9593' stroke-width='6' fill='none' /></svg>") no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
 }

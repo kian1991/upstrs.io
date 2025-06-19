@@ -1,10 +1,144 @@
 import Marquee from "react-fast-marquee";
 import { Box } from "../components/ui/box";
-import { CV_LINK } from "../constants";
+import { SOCIAL } from "../constants";
 import { UpstrsStripe } from "../img/stripe";
-import { useEffect } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
+import Accordion, { type AccordionHandle } from "../components/ui/accordion";
+import { UpstrsLogo } from "../img/upstrs_clean";
+import { TechItem, type TechItemProps } from "./components/tech-item";
+import { SocialBar } from "./components/social-bar";
+
+const techStack: TechItemProps[] = [
+  {
+    title: "React",
+    icon: (
+      <svg
+        fill="#61DAFB"
+        role="img"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>React</title>
+        <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z" />
+      </svg>
+    ),
+    level: 10,
+  },
+  {
+    title: "Next.js",
+    icon: (
+      <svg
+        fill="#000000"
+        role="img"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>Next.js</title>
+        <path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z" />
+      </svg>
+    ),
+    level: 8,
+  },
+  {
+    title: "TypeScript",
+    level: 9,
+    icon: (
+      <svg
+        fill="#3178C6"
+        role="img"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>TypeScript</title>
+        <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Tailwind",
+    icon: (
+      <svg
+        fill="#06B6D4"
+        role="img"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>Tailwind CSS</title>
+        <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z" />
+      </svg>
+    ),
+    level: 7,
+  },
+  {
+    title: "Cloud",
+    level: 6,
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 304 182">
+        <path
+          fill="#252f3e"
+          d="m86 66 2 9c0 3 1 5 3 8v2l-1 3-7 4-2 1-3-1-4-5-3-6c-8 9-18 14-29 14-9 0-16-3-20-8-5-4-8-11-8-19s3-15 9-20c6-6 14-8 25-8a79 79 0 0 1 22 3v-7c0-8-2-13-5-16-3-4-8-5-16-5l-11 1a80 80 0 0 0-14 5h-2c-1 0-2-1-2-3v-5l1-3c0-1 1-2 3-2l12-5 16-2c12 0 20 3 26 8 5 6 8 14 8 25v32zM46 82l10-2c4-1 7-4 10-7l3-6 1-9v-4a84 84 0 0 0-19-2c-6 0-11 1-15 4-3 2-4 6-4 11s1 8 3 11c3 2 6 4 11 4zm80 10-4-1-2-3-23-78-1-4 2-2h10l4 1 2 4 17 66 15-66 2-4 4-1h8l4 1 2 4 16 67 17-67 2-4 4-1h9c2 0 3 1 3 2v2l-1 2-24 78-2 4-4 1h-9l-4-1-1-4-16-65-15 64-2 4-4 1h-9zm129 3a66 66 0 0 1-27-6l-3-3-1-2v-5c0-2 1-3 2-3h2l3 1a54 54 0 0 0 23 5c6 0 11-2 14-4 4-2 5-5 5-9l-2-7-10-5-15-5c-7-2-13-6-16-10a24 24 0 0 1 5-34l10-5a44 44 0 0 1 20-2 110 110 0 0 1 12 3l4 2 3 2 1 4v4c0 3-1 4-2 4l-4-2c-6-2-12-3-19-3-6 0-11 0-14 2s-4 5-4 9c0 3 1 5 3 7s5 4 11 6l14 4c7 3 12 6 15 10s5 9 5 14l-3 12-7 8c-3 3-7 5-11 6l-14 2z"
+        />
+        <path
+          d="M274 144A220 220 0 0 1 4 124c-4-3-1-6 2-4a300 300 0 0 0 263 16c5-2 10 4 5 8z"
+          fill="#f90"
+        />
+        <path
+          d="M287 128c-4-5-28-3-38-1-4 0-4-3-1-5 19-13 50-9 53-5 4 5-1 36-18 51-3 2-6 1-5-2 5-10 13-33 9-38z"
+          fill="#f90"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Node.js",
+    level: 8,
+    icon: (
+      <svg
+        fill="#5FA04E"
+        role="img"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>Node.js</title>
+        <path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Hono",
+    level: 9,
+    icon: (
+      <svg
+        fill="#E36002"
+        role="img"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>Hono</title>
+        <path d="M12.445.002a45.529 45.529 0 0 0-5.252 8.146 8.595 8.595 0 0 1-.555-.53 27.796 27.796 0 0 0-1.205-1.542 8.762 8.762 0 0 0-1.251 2.12 20.743 20.743 0 0 0-1.448 5.88 8.867 8.867 0 0 0 .338 3.468c1.312 3.48 3.794 5.593 7.445 6.337 3.055.438 5.755-.333 8.097-2.312 2.677-2.59 3.359-5.634 2.047-9.132a33.287 33.287 0 0 0-2.988-5.59A91.34 91.34 0 0 0 12.615.053a.216.216 0 0 0-.17-.051Zm-.336 3.906a50.93 50.93 0 0 1 4.794 6.552c.448.767.817 1.57 1.108 2.41.606 2.386-.044 4.354-1.951 5.904-1.845 1.298-3.87 1.683-6.072 1.156-2.376-.737-3.75-2.335-4.121-4.794a5.107 5.107 0 0 1 .242-2.266c.358-.908.79-1.774 1.3-2.601l1.446-2.121a397.33 397.33 0 0 0 3.254-4.24Z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Docker",
+    level: 10,
+    icon: (
+      <svg
+        fill="#2496ED"
+        role="img"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>Docker</title>
+        <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z" />
+      </svg>
+    ),
+  },
+];
 
 export const Home = () => {
+  const accordionRefs = useRef<AccordionHandle[]>([]);
+
   // for hash scrolling
   useEffect(() => {
     if (window.location.hash) {
@@ -17,86 +151,285 @@ export const Home = () => {
     }
   }, []);
 
+  function openAllAccordions() {
+    accordionRefs.current.forEach((ref) => ref?.open?.());
+  }
+  function closeAllAccordions() {
+    accordionRefs.current.forEach((ref) => ref?.close?.());
+  }
+
   return (
-    <main className="mx-auto flex w-[min(calc(100%-2rem),768px)] flex-col gap-7">
-      <header className="flex w-full items-center justify-between pt-6 sm:flex-col-reverse sm:items-start">
-        <h1 className="text-4xl font-bold tracking-tight">Kian Lütke</h1>
-        <span className="badge badge-accent">FULL STACK DEV</span>
+    <main className="mx-auto flex w-[min(calc(100%-2rem),768px)] flex-col gap-8">
+      <header className="bg-base-200 sticky top-0 z-90 flex w-full flex-col-reverse items-end justify-between border-b-2 sm:flex-row sm:pt-6">
+        <div className="mr-auto">
+          <span className="badge badge-accent">FULL STACK DEV</span>
+          <h1 className="text-4xl font-bold tracking-tight">Kian Lütke</h1>
+        </div>
+        <SocialBar />
       </header>
-      <hr className="border-2" />
-      <Box
-        id="essentials"
-        title="Essentials"
-        className="grid w-full grid-cols-2 place-items-start"
-      >
-        <span className="bg-base-300 py-0.2 mb-2 px-2">Open for work:</span>
-        <span className="">Currently Yes</span>
 
-        <span className="bg-base-300 py-0.2 mb-2 px-2">Email:</span>
-        <a href="mailto:kianluetke@gmail.com">kianluetke@gmail.com</a>
+      <div id="hero">
+        <UpstrsLogo className="fill-base-content/40 h-24 w-fit" />
 
-        <span className="bg-base-300 py-0.2 mb-2 px-2">Github:</span>
-        <a className="link" href="https://github.com/kian1991/">
-          kian1991
-        </a>
-
-        <span className="bg-base-300 py-0.2 mb-2 px-2">LinkedIn:</span>
-
-        <a className="link" href="https://github.com/kian1991/">
-          Of Course
-        </a>
-      </Box>
-      <Marquee className="w-[200%]">
-        <UpstrsStripe className="fill-primary-content/60 h-56 px-1 py-4" />
-      </Marquee>
-      <div className="bg-base-300 border-neutral/30 h-28 rounded border-2">
-        <div className="flex h-full w-full items-center justify-between gap-1 p-4">
-          <div className="text-xl font-bold tracking-tighter">Grab a copy</div>
-          <a
-            href={CV_LINK}
-            target="_blank"
-            className="hover:bg-base-content/10 rounded-2xl border-2 border-dashed px-6 py-4 font-mono font-bold"
-          >
-            File: kians-cv.pdf
-          </a>
+        <div className="mt-2 flex w-full flex-col text-end text-xl uppercase sm:text-3xl">
+          <span className="font-thin">
+            Let's <span className="font-extrabold">create</span>
+          </span>
+          <span className="font-thin">
+            <span className="font-extrabold">together</span>
+          </span>
+          <span className="font-thin">
+            Get in{" "}
+            <a
+              className="link font-extrabold"
+              href={SOCIAL.WHATS_APP}
+              target="_blank"
+            >
+              touch
+            </a>
+          </span>
         </div>
       </div>
+
+      <div id="about" className="border-accent my-12 border-l-[7px] pl-4">
+        <h3 className="mb-2 text-2xl font-bold tracking-tight">Who am I?</h3>
+        <p className="text-justify">
+          I'm a full-stack developer and tech educator with a strong focus on
+          modern web technologies, scalable architecture, and hands-on teaching.
+          With 8+ years of experience building SaaS platforms, custom DevOps
+          pipelines, and real-time applications, I combine deep technical
+          expertise with a strong sense for usability and system design. Whether
+          it’s launching a fintech platform, leading a full-time bootcamp for
+          Volkswagen, or fine-tuning AI models on local hardware — I’m always
+          building, teaching, and iterating.
+        </p>
+      </div>
+
+      <Box title="Current Favorite Technologies">
+        <div className="grid sm:grid-cols-2 sm:gap-x-5">
+          {techStack.map((ti) => (
+            <TechItem icon={ti.icon} title={ti.title} level={ti.level} />
+          ))}
+        </div>
+      </Box>
+
+      <div className="flex w-full justify-between">
+        <button onClick={openAllAccordions} className="btn btn-sm">
+          Expand all
+        </button>
+        <button onClick={closeAllAccordions} className="btn btn-sm">
+          Collapse all
+        </button>
+      </div>
       <div id="skills" className="grid gap-2 sm:grid-cols-2">
-        <Box
-          title="Hardskills"
-          className="grid w-full grid-cols-2 place-items-start"
-          description={
-            <span>
-              Just my current favorite Stack. Read my{" "}
-              <a className="link" href={CV_LINK} target="_blank">
-                CV
-              </a>{" "}
-              for more detail
-            </span>
-          }
-        >
-          <span className="bg-base-300 py-0.2 mb-2 px-2">Frontend</span>
-          <div className="flex flex-col">
-            <span>TypeScript</span>
-            <span>React</span>
-            <span>Next.js</span>
-            <span>Tailwind</span>
-          </div>
-          <span className="bg-base-300 py-0.2 mt-2 mb-2 px-2">Backend</span>
-          <div className="mt-2 flex flex-col">
-            <span>Bun</span>
-            <span>Hono</span>
-            <span>Python</span>
-            <span>Drizzle & Prisma</span>
-          </div>
+        <Box title="Hardskills">
+          <Accordion
+            ref={(el) => (accordionRefs.current[0] = el!)}
+            className="pe-4"
+            header={
+              <span className="bg-base-content/10 text-base-content mb-2 rounded px-2 py-0.5">
+                Frontend
+              </span>
+            }
+          >
+            <div className="flex flex-col ps-3">
+              <span>TypeScript</span>
+              <span>React</span>
+              <span>Next.js</span>
+              <span>Tailwind</span>
+            </div>
+          </Accordion>
+
+          <Accordion
+            ref={(el) => (accordionRefs.current[1] = el!)}
+            className="pe-4"
+            header={
+              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
+                Backend
+              </span>
+            }
+          >
+            <div className="mt-2 flex flex-col ps-3">
+              <span>Bun</span>
+              <span>Hono</span>
+              <span>Python</span>
+              <span>Drizzle & Prisma</span>
+            </div>
+          </Accordion>
+          <Accordion
+            ref={(el) => (accordionRefs.current[2] = el!)}
+            className="pe-4"
+            header={
+              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
+                DevOps
+              </span>
+            }
+          >
+            <div className="mt-2 flex flex-col ps-3">
+              <span>Azure</span>
+              <span>AWS</span>
+              <span>Terraform</span>
+              <span>Docker</span>
+            </div>
+          </Accordion>
+
+          <Accordion
+            ref={(el) => (accordionRefs.current[3] = el!)}
+            className="pe-4"
+            header={
+              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
+                Testing & Quality
+              </span>
+            }
+          >
+            <div className="mt-2 flex flex-col ps-3">
+              <span>Jest</span>
+              <span>bun:test</span>
+              <span>Cypress</span>
+              <span>CI/CD</span>
+            </div>
+          </Accordion>
+
+          <Accordion
+            ref={(el) => (accordionRefs.current[4] = el!)}
+            className="pe-4"
+            header={
+              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
+                Mobile & UI
+              </span>
+            }
+          >
+            <div className="mt-2 flex flex-col ps-3">
+              <span>React Native</span>
+              <span>Android Native (Kotlin)</span>
+              <span>UI/UX Design</span>
+            </div>
+          </Accordion>
+
+          <Accordion
+            ref={(el) => (accordionRefs.current[5] = el!)}
+            className="pe-4"
+            header={
+              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
+                Database & Storage
+              </span>
+            }
+          >
+            <div className="mt-2 flex flex-col ps-3">
+              <span>PostgreSQL</span>
+              <span>MongoDB</span>
+              <span>NoSQL & RDBMS</span>
+              <span>Drizzle ORM</span>
+              <span>Prisma</span>
+            </div>
+          </Accordion>
+
+          <Accordion
+            ref={(el) => (accordionRefs.current[6] = el!)}
+            className="pe-4"
+            header={
+              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
+                AI, Data & Analytics
+              </span>
+            }
+          >
+            <div className="mt-2 flex flex-col ps-3">
+              <span>TensorFlow & PyTorch</span>
+              <span>Stable Diffusion</span>
+              <span>Ollama</span>
+              <span>Power BI</span>
+            </div>
+          </Accordion>
+
+          <Accordion
+            ref={(el) => (accordionRefs.current[7] = el!)}
+            className="pe-4"
+            header={
+              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
+                Cloud & Automation
+              </span>
+            }
+          >
+            <div className="mt-2 flex flex-col ps-3">
+              <span>Google Cloud</span>
+              <span>GitHub Actions</span>
+              <span>Google App Script</span>
+            </div>
+          </Accordion>
         </Box>
-        <Box title="Softskills" className="flex flex-col">
-          <span>Always learning. fast.</span>
-          <span>Leadership</span>
-          <span>Teaching Skills</span>
-          <span>Can handle human being well</span>
+        <Box title="Softskills">
+          <Accordion
+            ref={(el) => (accordionRefs.current[8] = el!)}
+            className="pe-4"
+            header={
+              <span className="bg-base-content/10 text-base-content mb-2 rounded px-2 py-0.5">
+                Personal Traits
+              </span>
+            }
+          >
+            <div className="flex flex-col ps-3">
+              <span>Fast Learner</span>
+              <span>Solution-Oriented</span>
+              <span>Highly Adaptive</span>
+              <span>Creative</span>
+              <span>Agile</span>
+              <span>Hodler</span>
+            </div>
+          </Accordion>
+
+          <Accordion
+            ref={(el) => (accordionRefs.current[9] = el!)}
+            className="pe-4"
+            header={
+              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
+                Communication & Collaboration
+              </span>
+            }
+          >
+            <div className="flex flex-col ps-3">
+              <span>Communication</span>
+              <span>Teamwork</span>
+              <span>Leadership</span>
+              <span>Can handle human beings well</span>
+            </div>
+          </Accordion>
+
+          <Accordion
+            ref={(el) => (accordionRefs.current[10] = el!)}
+            className="pe-4"
+            header={
+              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
+                Teaching & Mentoring
+              </span>
+            }
+          >
+            <div className="flex flex-col ps-3">
+              <span>Teaching</span>
+              <span>Mentoring</span>
+              <span>Curriculum Design</span>
+            </div>
+          </Accordion>
+
+          <Accordion
+            ref={(el) => (accordionRefs.current[11] = el!)}
+            className="pe-4"
+            header={
+              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
+                Values & Mindset
+              </span>
+            }
+          >
+            <div className="flex flex-col ps-3">
+              <span>Web3 Advocate</span>
+              <span>Open Minded</span>
+              <span>Responsible</span>
+            </div>
+          </Accordion>
         </Box>
       </div>
+      <Marquee className="z-0 w-[200%]">
+        <UpstrsStripe className="fill-primary-content/60 h-56 px-1 py-4" />
+      </Marquee>
     </main>
   );
 };
