@@ -1,12 +1,12 @@
 import Marquee from "react-fast-marquee";
 import { Box } from "../components/ui/box";
-import { SOCIAL } from "../constants";
 import { UpstrsStripe } from "../img/stripe";
 import { useEffect, useRef } from "react";
-import Accordion, { type AccordionHandle } from "../components/ui/accordion";
-import { UpstrsLogo } from "../img/upstrs_clean";
-import { TechItem, type TechItemProps } from "./components/tech-item";
-import { SocialBar } from "./components/social-bar";
+import { TechItem, type TechItemProps } from "./components/home/tech-item";
+import { SocialBar } from "./components/home/social-bar";
+import { Hero } from "./components/home/hero";
+import { Skills, type SkillsHandle } from "./components/home/skills";
+import { About } from "./components/home/about";
 
 const techStack: TechItemProps[] = [
   {
@@ -67,7 +67,7 @@ const techStack: TechItemProps[] = [
         <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z" />
       </svg>
     ),
-    level: 7,
+    level: 9,
   },
   {
     title: "Cloud",
@@ -105,17 +105,42 @@ const techStack: TechItemProps[] = [
     ),
   },
   {
-    title: "Hono",
+    title: "Python",
     level: 9,
     icon: (
-      <svg
-        fill="#E36002"
-        role="img"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>Hono</title>
-        <path d="M12.445.002a45.529 45.529 0 0 0-5.252 8.146 8.595 8.595 0 0 1-.555-.53 27.796 27.796 0 0 0-1.205-1.542 8.762 8.762 0 0 0-1.251 2.12 20.743 20.743 0 0 0-1.448 5.88 8.867 8.867 0 0 0 .338 3.468c1.312 3.48 3.794 5.593 7.445 6.337 3.055.438 5.755-.333 8.097-2.312 2.677-2.59 3.359-5.634 2.047-9.132a33.287 33.287 0 0 0-2.988-5.59A91.34 91.34 0 0 0 12.615.053a.216.216 0 0 0-.17-.051Zm-.336 3.906a50.93 50.93 0 0 1 4.794 6.552c.448.767.817 1.57 1.108 2.41.606 2.386-.044 4.354-1.951 5.904-1.845 1.298-3.87 1.683-6.072 1.156-2.376-.737-3.75-2.335-4.121-4.794a5.107 5.107 0 0 1 .242-2.266c.358-.908.79-1.774 1.3-2.601l1.446-2.121a397.33 397.33 0 0 0 3.254-4.24Z" />
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="16 16 32 32">
+        <path
+          fill="url(#a)"
+          d="M31.885 16c-8.124 0-7.617 3.523-7.617 3.523l.01 3.65h7.752v1.095H21.197S16 23.678 16 31.876c0 8.196 4.537 7.906 4.537 7.906h2.708v-3.804s-.146-4.537 4.465-4.537h7.688s4.32.07 4.32-4.175v-7.019S40.374 16 31.885 16zm-4.275 2.454a1.394 1.394 0 1 1 0 2.79 1.393 1.393 0 0 1-1.395-1.395c0-.771.624-1.395 1.395-1.395z"
+        />
+        <path
+          fill="url(#b)"
+          d="M32.115 47.833c8.124 0 7.617-3.523 7.617-3.523l-.01-3.65H31.97v-1.095h10.832S48 40.155 48 31.958c0-8.197-4.537-7.906-4.537-7.906h-2.708v3.803s.146 4.537-4.465 4.537h-7.688s-4.32-.07-4.32 4.175v7.019s-.656 4.247 7.833 4.247zm4.275-2.454a1.393 1.393 0 0 1-1.395-1.395 1.394 1.394 0 1 1 1.395 1.395z"
+        />
+        <defs>
+          <linearGradient
+            id="a"
+            x1="19.075"
+            x2="34.898"
+            y1="18.782"
+            y2="34.658"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#387EB8" />
+            <stop offset="1" stop-color="#366994" />
+          </linearGradient>
+          <linearGradient
+            id="b"
+            x1="28.809"
+            x2="45.803"
+            y1="28.882"
+            y2="45.163"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#FFE052" />
+            <stop offset="1" stop-color="#FFC331" />
+          </linearGradient>
+        </defs>
       </svg>
     ),
   },
@@ -137,7 +162,7 @@ const techStack: TechItemProps[] = [
 ];
 
 export const Home = () => {
-  const accordionRefs = useRef<AccordionHandle[]>([]);
+  const skillsRef = useRef<SkillsHandle>(null);
 
   // for hash scrolling
   useEffect(() => {
@@ -151,60 +176,17 @@ export const Home = () => {
     }
   }, []);
 
-  function openAllAccordions() {
-    accordionRefs.current.forEach((ref) => ref?.open?.());
-  }
-  function closeAllAccordions() {
-    accordionRefs.current.forEach((ref) => ref?.close?.());
-  }
-
   return (
     <main className="mx-auto flex w-[min(calc(100%-2rem),768px)] flex-col gap-8">
-      <header className="bg-base-200 sticky top-0 z-90 flex w-full flex-col-reverse items-end justify-between border-b-2 sm:flex-row sm:pt-6">
+      <header className="bg-base-200 sticky top-0 z-90 flex w-full flex-col-reverse items-end justify-between border-b-2 pb-2 sm:flex-row sm:pt-6">
         <div className="mr-auto">
           <span className="badge badge-accent">FULL STACK DEV</span>
           <h1 className="text-4xl font-bold tracking-tight">Kian Lütke</h1>
         </div>
         <SocialBar />
       </header>
-
-      <div id="hero" className="">
-        <UpstrsLogo className="fill-base-content/40 sticky top-28 h-24 w-fit" />
-
-        <div className="sticky top-28 mt-2 flex w-full flex-col text-end text-xl uppercase sm:text-3xl">
-          <span className="font-thin">
-            Let's <span className="font-extrabold">create</span>
-          </span>
-          <span className="font-thin">
-            <span className="font-extrabold">together</span>
-          </span>
-          <span className="font-thin">
-            Get in{" "}
-            <a
-              className="link font-extrabold"
-              href={SOCIAL.WHATS_APP}
-              target="_blank"
-            >
-              touch
-            </a>
-          </span>
-        </div>
-      </div>
-
-      <div id="about" className="border-accent my-12 border-l-[7px] pl-4">
-        <h3 className="mb-2 text-2xl font-bold tracking-tight">Who am I?</h3>
-        <p className="text-justify">
-          I'm a full-stack developer and tech educator with a strong focus on
-          modern web technologies, scalable architecture, and hands-on teaching.
-          With 8+ years of experience building SaaS platforms, custom DevOps
-          pipelines, and real-time applications, I combine deep technical
-          expertise with a strong sense for usability and system design. Whether
-          it’s launching a fintech platform, leading a full-time bootcamp for
-          Volkswagen, or fine-tuning AI models on local hardware — I’m always
-          building, teaching, and iterating.
-        </p>
-      </div>
-
+      <Hero />
+      <About />
       <Box title="Current Favorite Technologies">
         <div className="grid sm:grid-cols-2 sm:gap-x-5">
           {techStack.map((ti) => (
@@ -214,245 +196,24 @@ export const Home = () => {
       </Box>
 
       <div className="flex w-full justify-between">
-        <button onClick={openAllAccordions} className="btn btn-sm">
+        <button
+          onClick={() => skillsRef.current?.openAll()}
+          className="btn btn-sm"
+        >
           Expand all
         </button>
-        <button onClick={closeAllAccordions} className="btn btn-sm">
+        <button
+          onClick={() => skillsRef.current?.closeAll()}
+          className="btn btn-sm"
+        >
           Collapse all
         </button>
       </div>
-      <div id="skills" className="grid gap-2 sm:grid-cols-2">
-        <Box title="Hardskills">
-          <Accordion
-            ref={(el) => {
-              accordionRefs.current[0] = el!;
-            }}
-            className="pe-4"
-            header={
-              <span className="bg-base-content/10 text-base-content mb-2 rounded px-2 py-0.5">
-                Frontend
-              </span>
-            }
-          >
-            <div className="flex flex-col ps-3">
-              <span>TypeScript</span>
-              <span>React</span>
-              <span>Next.js</span>
-              <span>Tailwind</span>
-            </div>
-          </Accordion>
 
-          <Accordion
-            ref={(el) => {
-              accordionRefs.current[1] = el!;
-            }}
-            className="pe-4"
-            header={
-              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-                Backend
-              </span>
-            }
-          >
-            <div className="mt-2 flex flex-col ps-3">
-              <span>Bun</span>
-              <span>Hono</span>
-              <span>Python</span>
-              <span>Drizzle & Prisma</span>
-            </div>
-          </Accordion>
-          <Accordion
-            ref={(el) => {
-              accordionRefs.current[2] = el!;
-            }}
-            className="pe-4"
-            header={
-              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-                DevOps
-              </span>
-            }
-          >
-            <div className="mt-2 flex flex-col ps-3">
-              <span>Azure</span>
-              <span>AWS</span>
-              <span>Terraform</span>
-              <span>Docker</span>
-            </div>
-          </Accordion>
+      <Skills ref={skillsRef} />
 
-          <Accordion
-            ref={(el) => {
-              accordionRefs.current[3] = el!;
-            }}
-            className="pe-4"
-            header={
-              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-                Testing & Quality
-              </span>
-            }
-          >
-            <div className="mt-2 flex flex-col ps-3">
-              <span>Jest</span>
-              <span>bun:test</span>
-              <span>Cypress</span>
-              <span>CI/CD</span>
-            </div>
-          </Accordion>
-
-          <Accordion
-            ref={(el) => {
-              accordionRefs.current[4] = el!;
-            }}
-            className="pe-4"
-            header={
-              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-                Mobile & UI
-              </span>
-            }
-          >
-            <div className="mt-2 flex flex-col ps-3">
-              <span>React Native</span>
-              <span>Android Native (Kotlin)</span>
-              <span>UI/UX Design</span>
-            </div>
-          </Accordion>
-
-          <Accordion
-            ref={(el) => {
-              accordionRefs.current[5] = el!;
-            }}
-            className="pe-4"
-            header={
-              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-                Database & Storage
-              </span>
-            }
-          >
-            <div className="mt-2 flex flex-col ps-3">
-              <span>PostgreSQL</span>
-              <span>MongoDB</span>
-              <span>NoSQL & RDBMS</span>
-              <span>Drizzle ORM</span>
-              <span>Prisma</span>
-            </div>
-          </Accordion>
-
-          <Accordion
-            ref={(el) => {
-              accordionRefs.current[6] = el!;
-            }}
-            className="pe-4"
-            header={
-              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-                AI, Data & Analytics
-              </span>
-            }
-          >
-            <div className="mt-2 flex flex-col ps-3">
-              <span>TensorFlow & PyTorch</span>
-              <span>Stable Diffusion</span>
-              <span>Ollama</span>
-              <span>Power BI</span>
-            </div>
-          </Accordion>
-
-          <Accordion
-            ref={(el) => {
-              accordionRefs.current[7] = el!;
-            }}
-            className="pe-4"
-            header={
-              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-                Cloud & Automation
-              </span>
-            }
-          >
-            <div className="mt-2 flex flex-col ps-3">
-              <span>Google Cloud</span>
-              <span>GitHub Actions</span>
-              <span>Google App Script</span>
-            </div>
-          </Accordion>
-        </Box>
-        <Box title="Softskills">
-          <Accordion
-            ref={(el) => {
-              accordionRefs.current[8] = el!;
-            }}
-            className="pe-4"
-            header={
-              <span className="bg-base-content/10 text-base-content mb-2 rounded px-2 py-0.5">
-                Personal Traits
-              </span>
-            }
-          >
-            <div className="flex flex-col ps-3">
-              <span>Fast Learner</span>
-              <span>Solution-Oriented</span>
-              <span>Highly Adaptive</span>
-              <span>Creative</span>
-              <span>Agile</span>
-              <span>Hodler</span>
-            </div>
-          </Accordion>
-
-          <Accordion
-            ref={(el) => {
-              accordionRefs.current[9] = el!;
-            }}
-            className="pe-4"
-            header={
-              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-                Communication & Collaboration
-              </span>
-            }
-          >
-            <div className="flex flex-col ps-3">
-              <span>Communication</span>
-              <span>Teamwork</span>
-              <span>Leadership</span>
-              <span>Can handle human beings well</span>
-            </div>
-          </Accordion>
-
-          <Accordion
-            ref={(el) => {
-              accordionRefs.current[10] = el!;
-            }}
-            className="pe-4"
-            header={
-              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-                Teaching & Mentoring
-              </span>
-            }
-          >
-            <div className="flex flex-col ps-3">
-              <span>Teaching</span>
-              <span>Mentoring</span>
-              <span>Curriculum Design</span>
-            </div>
-          </Accordion>
-
-          <Accordion
-            ref={(el) => {
-              accordionRefs.current[11] = el!;
-            }}
-            className="pe-4"
-            header={
-              <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-                Values & Mindset
-              </span>
-            }
-          >
-            <div className="flex flex-col ps-3">
-              <span>Web3 Advocate</span>
-              <span>Open Minded</span>
-              <span>Responsible</span>
-            </div>
-          </Accordion>
-        </Box>
-      </div>
       <Marquee className="z-0 w-[200%]">
-        <UpstrsStripe className="fill-primary-content/60 h-56 px-1 py-4" />
+        <UpstrsStripe className="fill-primary-content/60 h-56 w-full px-1 py-4" />
       </Marquee>
     </main>
   );

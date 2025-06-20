@@ -3,8 +3,7 @@ import type { HTMLAttributes } from "react";
 export function UpstrsLogo(props: HTMLAttributes<SVGElement>) {
   return (
     <svg
-      width="100%"
-      height="100%"
+      preserveAspectRatio="xMidYMid meet"
       viewBox="0 0 597 713"
       version="1.1"
       className={props.className}

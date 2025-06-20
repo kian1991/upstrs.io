@@ -6,7 +6,7 @@ export const Cursor = () => {
   ]);
 
   const cursorRef = useRef<HTMLDivElement>(null);
-  const debounce = useRef<number>(null);
+  // const debounce = useRef<number>(null);
 
   useEffect(() => {
     const listener = (e: MouseEvent) => {

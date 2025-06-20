@@ -10,7 +10,11 @@
 
 * {
   caret-color: transparent;
+}
 
+.highlight {
+  font-weight: 600;
+  color: var(--color-accent-content);
 }
 
 .link {
@@ -21,7 +25,6 @@
 }
 
 .link:hover {
-  cursor: none;
   background: #f8c90c6d;
   border-radius: 15px;
   padding: 1px 5px;

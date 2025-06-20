@@ -1,5 +1,26 @@
+import { Link } from "react-router";
+
 export const Imprint = () => (
   <main className="mx-auto flex w-[min(calc(100%-2rem),768px)] flex-col gap-7">
+    <Link
+      to={"/"}
+      className="btn btn-primary btn-circle btn-xl absolute top-5 left-5"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M11 17h6l-4 -5l4 -5h-6l-4 5z" />
+      </svg>
+    </Link>
     <h1 className="mt-12 text-4xl font-bold tracking-tighter">Impressum</h1>
     <section className="space-y-4">
       <p>

@@ -6,7 +6,6 @@ export function App() {
     <div className="bg-base-200 min-h-screen pb-20">
       <Outlet />
       <BottomNav />
-      {/* <Cursor /> */}
     </div>
   );
 }
