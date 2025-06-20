@@ -178,7 +178,7 @@ export const Home = () => {
 
   return (
     <main className="mx-auto flex w-[min(calc(100%-2rem),768px)] flex-col gap-8">
-      <header className="bg-base-200 sticky top-0 z-90 flex w-full flex-col-reverse items-end justify-between border-b-2 pb-2 sm:flex-row sm:pt-6">
+      <header className="bg-base-200 sticky top-0 z-90 flex w-full flex-col-reverse items-end justify-between border-b-2 py-2 sm:flex-row sm:pt-6">
         <div className="mr-auto">
           <span className="badge badge-accent">FULL STACK DEV</span>
           <h1 className="text-4xl font-bold tracking-tight">Kian Lütke</h1>
@@ -213,7 +213,7 @@ export const Home = () => {
       <Skills ref={skillsRef} />
 
       <Marquee className="z-0 w-[200%]">
-        <UpstrsStripe className="fill-primary-content/60 h-56 w-full px-1 py-4" />
+        <UpstrsStripe className="fill-primary-content/60 h-auto w-[3136px] max-w-none px-1 py-4" />
       </Marquee>
     </main>
   );

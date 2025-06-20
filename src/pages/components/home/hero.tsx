@@ -3,7 +3,7 @@ import { UpstrsLogo } from "../../../img/upstrs_clean";
 
 export const Hero = () => (
   <div id="hero" className="">
-    <UpstrsLogo className="fill-base-content/40 sticky top-28 h-24 w-24" />
+    <UpstrsLogo className="fill-base-content/40 sticky top-34 h-24 w-24" />
 
     <div className="sticky top-28 mt-2 flex w-full flex-col text-end text-xl uppercase sm:text-3xl">
       <span className="font-thin">

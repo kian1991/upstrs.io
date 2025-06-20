@@ -29,9 +29,9 @@ export function BottomNav() {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 font-bold shadow"
           >
             <li>
-              <a className="text-lg" href="/#skills">
-                Skills
-              </a>
+              <Link className="text-lg" to="/">
+                Home
+              </Link>
             </li>
             <li>
               <Link className="text-lg" to="/imprint">

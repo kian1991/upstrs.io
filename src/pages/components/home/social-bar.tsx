@@ -7,7 +7,7 @@ export const SocialBar = () => (
     <a
       href={SOCIAL.GITHUB}
       target="_blank"
-      className="btn btn-xl btn-ghost btn-circle p-4"
+      className="btn btn-lg sm:btn-xl btn-ghost btn-circle p-3"
     >
       <svg
         fill="#181717"
@@ -24,7 +24,7 @@ export const SocialBar = () => (
     <a
       href={SOCIAL.MAIL}
       target="_blank"
-      className="btn btn-xl btn-ghost btn-circle p-4"
+      className="btn btn-lg sm:btn-xl btn-ghost btn-circle p-3"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@ export const SocialBar = () => (
     <a
       href={SOCIAL.WHATS_APP}
       target="_blank"
-      className="btn btn-xl btn-ghost btn-circle p-4"
+      className="btn btn-lg sm:btn-xl btn-ghost btn-circle p-3"
     >
       <svg
         fill="#25D366"
@@ -62,7 +62,7 @@ export const SocialBar = () => (
     <a
       href={SOCIAL.LINKED_IN}
       target="_blank"
-      className="btn btn-xl btn-ghost btn-circle p-4"
+      className="btn btn-lg sm:btn-xl btn-ghost btn-circle p-3"
     >
       <svg
         width="256"
