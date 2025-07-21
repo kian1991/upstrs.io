@@ -33,6 +33,15 @@ export const Imprint = () => (
         Kian Lütke, Anschrift wie oben
       </p>
       <p>Keine Eintragung im Handelsregister.</p>
+      <p>
+        <strong>Datenschutz-Hinweis:</strong>
+        <br />
+        Diese Website nutzt Cloudflare Web Analytics, um Zugriffe
+        datenschutzfreundlich zu analysieren. Dabei werden keine Cookies gesetzt
+        und es erfolgt keine Speicherung personenbezogener Daten über die Dauer
+        der Sitzung hinaus. Anbieter ist Cloudflare Inc., 101 Townsend St, San
+        Francisco, CA 94107, USA.
+      </p>
       <Link to={"/"} className="btn btn-primary btn-xl mx-auto mt-8">
         <svg
           xmlns="http://www.w3.org/2000/svg"
