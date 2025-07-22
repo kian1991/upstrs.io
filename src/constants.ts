@@ -1,5 +1,5 @@
 export const CV_LINK =
-  "https://drive.google.com/file/d/1obFkvxe6toxu00V6jdpiOZcmxV_C1P1n/view?usp=sharing" as const;
+  "https://drive.google.com/file/d/1L_UbcUkC0DZhty9XSVYooSVMexRZVnxi/view?usp=sharing" as const;
 
 export const SOCIAL = {
   WHATS_APP: "https://wa.me/message/6JLKT55JL47QG1",
