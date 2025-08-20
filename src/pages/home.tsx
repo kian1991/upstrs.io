@@ -187,11 +187,54 @@ export const Home = () => {
       </header>
       <Hero />
       <About />
+
       <Box title="Current Favorite Technologies">
         <div className="grid sm:grid-cols-2 sm:gap-x-5">
           {techStack.map((ti) => (
             <TechItem icon={ti.icon} title={ti.title} level={ti.level} />
           ))}
+        </div>
+      </Box>
+
+      <Box title="References and Certificates" id="references">
+        <div className="grid gap-6 sm:grid-cols-2">
+          {/* Aluxus Reference Letter */}
+          <div className="card bg-base-200 shadow">
+            <div className="card-body">
+              <h3 className="card-title">Aluxus Reference Letter</h3>
+              <p className="text-sm opacity-80">
+                Long term external contractor. Full Stack, DevOps, AWS, CI/CD.
+              </p>
+              <div className="card-actions justify-end">
+                <a
+                  className="btn btn-ghost btn-sm"
+                  href="aluxus.pdf"
+                  target="__blank"
+                >
+                  Download
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Qualidy Arbeitszeugnis */}
+          <div className="card bg-base-200 shadow">
+            <div className="card-body">
+              <h3 className="card-title">Qualidy Arbeitszeugnis</h3>
+              <p className="text-sm opacity-80">
+                Lead IT Instructor for Volkswagen. (German)
+              </p>
+              <div className="card-actions justify-end">
+                <a
+                  className="btn btn-ghost btn-sm"
+                  href="/qualidy.pdf"
+                  target="__blank"
+                >
+                  Download
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </Box>
 
