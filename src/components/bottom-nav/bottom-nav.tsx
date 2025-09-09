@@ -39,7 +39,12 @@ export function BottomNav() {
               </Link>
             </li>
             <li>
-              <a className="text-lg" href={CV_LINK} target="_blank">
+              <a
+                className="text-lg"
+                href={CV_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Download CV
               </a>
             </li>
@@ -50,7 +55,12 @@ export function BottomNav() {
         <UpstrsLogo className="size-10" />
       </div>
       <div className="navbar-end flex items-center">
-        <a href={CV_LINK} target="_blank" className="btn">
+        <a
+          href={CV_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn"
+        >
           <span className="italic">RESUME</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"

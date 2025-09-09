@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "Kian Lütke",
+      "url": "https://upstrs.io/",
+      "email": "mailto:kianluetke@gmail.com",
+      "sameAs": [
+        "https://github.com/kian1991/",
+        "https://www.linkedin.com/in/kian-luetke"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "upstrs.io",
+      "url": "https://upstrs.io/",
+      "inLanguage": "en"
+    }
+  ]
+}

@@ -18,6 +18,8 @@ export const Hero = () => (
           className="link font-extrabold"
           href={SOCIAL.WHATS_APP}
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp chat"
         >
           touch
         </a>

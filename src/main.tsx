@@ -5,6 +5,7 @@ import { App } from "./app";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { Home } from "./pages/home";
 import { Imprint } from "./pages/imprint";
+import { NotFound } from "./pages/not-found";
 
 const browserRouter = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const browserRouter = createBrowserRouter([
       {
         path: "/imprint",
         element: <Imprint />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },

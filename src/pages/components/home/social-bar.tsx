@@ -7,6 +7,8 @@ export const SocialBar = () => (
     <a
       href={SOCIAL.GITHUB}
       target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub profile"
       className="btn btn-lg sm:btn-xl btn-ghost btn-circle p-3"
     >
       <svg
@@ -24,6 +26,8 @@ export const SocialBar = () => (
     <a
       href={SOCIAL.MAIL}
       target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Send email"
       className="btn btn-lg sm:btn-xl btn-ghost btn-circle p-3"
     >
       <svg
@@ -45,6 +49,8 @@ export const SocialBar = () => (
     <a
       href={SOCIAL.WHATS_APP}
       target="_blank"
+      rel="noopener noreferrer"
+      aria-label="WhatsApp chat"
       className="btn btn-lg sm:btn-xl btn-ghost btn-circle p-3"
     >
       <svg
@@ -62,6 +68,8 @@ export const SocialBar = () => (
     <a
       href={SOCIAL.LINKED_IN}
       target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn profile"
       className="btn btn-lg sm:btn-xl btn-ghost btn-circle p-3"
     >
       <svg

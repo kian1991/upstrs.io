@@ -1,7 +1,9 @@
 import Marquee from "react-fast-marquee";
 import { Box } from "../components/ui/box";
-import { UpstrsStripe } from "../img/stripe";
-import { useEffect, useRef } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
+const UpstrsStripeLazy = lazy(() =>
+  import("../img/stripe").then((m) => ({ default: m.UpstrsStripe })),
+);
 import { TechItem, type TechItemProps } from "./components/home/tech-item";
 import { SocialBar } from "./components/home/social-bar";
 import { Hero } from "./components/home/hero";
@@ -208,8 +210,9 @@ export const Home = () => {
               <div className="card-actions justify-end">
                 <a
                   className="btn btn-ghost btn-sm"
-                  href="aluxus.pdf"
-                  target="__blank"
+                  href="/aluxus.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Download
                 </a>
@@ -228,7 +231,8 @@ export const Home = () => {
                 <a
                   className="btn btn-ghost btn-sm"
                   href="/qualidy.pdf"
-                  target="__blank"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Download
                 </a>
@@ -256,7 +260,9 @@ export const Home = () => {
       <Skills ref={skillsRef} />
 
       <Marquee className="z-0 w-[200%]">
-        <UpstrsStripe className="fill-primary-content/60 h-auto w-[3136px] max-w-none px-1 py-4" />
+        <Suspense fallback={null}>
+          <UpstrsStripeLazy className="fill-primary-content/60 h-auto w-[3136px] max-w-none px-1 py-4" />
+        </Suspense>
       </Marquee>
     </main>
   );
