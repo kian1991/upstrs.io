@@ -7,10 +7,10 @@ export const Hero = () => (
 
     <div className="sticky top-28 mt-2 flex w-full flex-col text-end text-xl uppercase sm:text-3xl">
       <span className="font-thin">
-        Let's <span className="font-extrabold">create</span>
+        This is <span className="font-extrabold">my</span>
       </span>
       <span className="font-thin">
-        <span className="font-extrabold">together</span>
+        <span className="font-extrabold">Businesscard</span>
       </span>
       <span className="font-thin">
         Get in{" "}

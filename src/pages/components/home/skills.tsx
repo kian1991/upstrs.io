@@ -24,6 +24,7 @@ export const Skills = forwardRef((_, ref) => {
   return (
     <div id="skills" className="grid gap-2 sm:grid-cols-2">
       <Box title="Hardskills">
+        {/* FRONTEND */}
         <Accordion
           ref={(el) => {
             accordionRefs.current[0] = el!;
@@ -36,13 +37,16 @@ export const Skills = forwardRef((_, ref) => {
           }
         >
           <div className="flex flex-col ps-3">
-            <span>TypeScript</span>
             <span>React</span>
             <span>Next.js</span>
+            <span>Svelte</span>
+            <span>TypeScript</span>
+            <span>HTML & CSS</span>
             <span>Tailwind</span>
           </div>
         </Accordion>
 
+        {/* BACKEND */}
         <Accordion
           ref={(el) => {
             accordionRefs.current[1] = el!;
@@ -55,12 +59,16 @@ export const Skills = forwardRef((_, ref) => {
           }
         >
           <div className="mt-2 flex flex-col ps-3">
-            <span>Bun</span>
+            <span>Bun / Node.js</span>
             <span>Hono</span>
-            <span>Python</span>
-            <span>Drizzle & Prisma</span>
+            <span>Express</span>
+            <span>Elysia</span>
+            <span>REST API Design</span>
+            <span>Zod</span>
           </div>
         </Accordion>
+
+        {/* DEVOPS */}
         <Accordion
           ref={(el) => {
             accordionRefs.current[2] = el!;
@@ -68,18 +76,20 @@ export const Skills = forwardRef((_, ref) => {
           className="pe-4"
           header={
             <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-              DevOps
+              DevOps & Cloud
             </span>
           }
         >
           <div className="mt-2 flex flex-col ps-3">
-            <span>Azure</span>
-            <span>AWS</span>
-            <span>Terraform</span>
+            <span>AWS (EC2, S3, Lambda, DynamoDB)</span>
             <span>Docker</span>
+            <span>CI/CD (GitHub Actions, Azure DevOps)</span>
+            <span>Infrastructure as Code</span>
+            <span>Linux</span>
           </div>
         </Accordion>
 
+        {/* TESTING */}
         <Accordion
           ref={(el) => {
             accordionRefs.current[3] = el!;
@@ -95,10 +105,11 @@ export const Skills = forwardRef((_, ref) => {
             <span>Jest</span>
             <span>bun:test</span>
             <span>Cypress</span>
-            <span>CI/CD</span>
+            <span>Automated QA Pipelines</span>
           </div>
         </Accordion>
 
+        {/* MOBILE */}
         <Accordion
           ref={(el) => {
             accordionRefs.current[4] = el!;
@@ -106,17 +117,17 @@ export const Skills = forwardRef((_, ref) => {
           className="pe-4"
           header={
             <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-              Mobile & UI
+              Mobile
             </span>
           }
         >
           <div className="mt-2 flex flex-col ps-3">
             <span>React Native</span>
-            <span>Android Native (Kotlin)</span>
-            <span>UI/UX Design</span>
+            <span>Android (Kotlin)</span>
           </div>
         </Accordion>
 
+        {/* DATABASE */}
         <Accordion
           ref={(el) => {
             accordionRefs.current[5] = el!;
@@ -124,19 +135,21 @@ export const Skills = forwardRef((_, ref) => {
           className="pe-4"
           header={
             <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-              Database & Storage
+              Databases
             </span>
           }
         >
           <div className="mt-2 flex flex-col ps-3">
             <span>PostgreSQL</span>
+            <span>MySQL</span>
             <span>MongoDB</span>
-            <span>NoSQL & RDBMS</span>
-            <span>Drizzle ORM</span>
-            <span>Prisma</span>
+            <span>DynamoDB</span>
+            <span>ORMs (Drizzle, Prisma)</span>
+            <span>NoSQL & SQL Modeling</span>
           </div>
         </Accordion>
 
+        {/* AI */}
         <Accordion
           ref={(el) => {
             accordionRefs.current[6] = el!;
@@ -144,18 +157,19 @@ export const Skills = forwardRef((_, ref) => {
           className="pe-4"
           header={
             <span className="bg-base-content/10 text-base-content mt-2 mb-2 rounded px-2 py-0.5">
-              AI, Data & Analytics
+              AI & Data
             </span>
           }
         >
           <div className="mt-2 flex flex-col ps-3">
-            <span>TensorFlow & PyTorch</span>
+            <span>TensorFlow / PyTorch (Basics)</span>
             <span>Stable Diffusion</span>
             <span>Ollama</span>
             <span>Power BI</span>
           </div>
         </Accordion>
 
+        {/* AUTOMATION */}
         <Accordion
           ref={(el) => {
             accordionRefs.current[7] = el!;
@@ -169,11 +183,13 @@ export const Skills = forwardRef((_, ref) => {
         >
           <div className="mt-2 flex flex-col ps-3">
             <span>GitHub Actions</span>
-            <span>Google App Script</span>
-            <span>CI/CD</span>
+            <span>Google Apps Script</span>
+            <span>Workflow Automation</span>
           </div>
         </Accordion>
       </Box>
+
+      {/* ----------- SOFT SKILLS ----------- */}
       <Box title="Softskills">
         <Accordion
           ref={(el) => {
@@ -189,10 +205,9 @@ export const Skills = forwardRef((_, ref) => {
           <div className="flex flex-col ps-3">
             <span>Fast Learner</span>
             <span>Solution-Oriented</span>
-            <span>Highly Adaptive</span>
+            <span>Adaptive</span>
             <span>Creative</span>
-            <span>Agile</span>
-            <span>Hodler</span>
+            <span>Structured Thinking</span>
           </div>
         </Accordion>
 
@@ -208,10 +223,10 @@ export const Skills = forwardRef((_, ref) => {
           }
         >
           <div className="flex flex-col ps-3">
-            <span>Communication</span>
-            <span>Teamwork</span>
+            <span>Clear Communication</span>
+            <span>Team Collaboration</span>
             <span>Leadership</span>
-            <span>Can handle human beings well</span>
+            <span>Working Well With People</span>
           </div>
         </Accordion>
 
@@ -245,8 +260,8 @@ export const Skills = forwardRef((_, ref) => {
           }
         >
           <div className="flex flex-col ps-3">
-            <span>Web3 Advocate</span>
-            <span>Open Minded</span>
+            <span>Web3 Interest</span>
+            <span>Open-Minded</span>
             <span>Responsible</span>
           </div>
         </Accordion>
@@ -254,3 +269,4 @@ export const Skills = forwardRef((_, ref) => {
     </div>
   );
 });
+Skills.displayName = "Skills";

@@ -52,7 +52,7 @@ export function BottomNav() {
         </div>
       </div>
       <div className="navbar-center">
-        <UpstrsLogo className="size-10" />
+        <UpstrsLogo className="size-10 fill-neutral-200" />
       </div>
       <div className="navbar-end flex items-center">
         <a

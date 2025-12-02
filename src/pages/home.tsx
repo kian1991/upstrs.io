@@ -182,7 +182,7 @@ export const Home = () => {
     <main className="mx-auto flex w-[min(calc(100%-2rem),768px)] flex-col gap-8">
       <header className="bg-base-200 sticky top-0 z-90 flex w-full flex-col-reverse items-end justify-between border-b-2 py-2 sm:flex-row sm:pt-6">
         <div className="mr-auto">
-          <span className="badge badge-accent">SOFTWARE ENGINEER</span>
+          {/* <span className="badge badge-accent">SENIOR SOFTWARE ENGINEER</span> */}
           <h1 className="text-4xl font-bold tracking-tight">Kian Lütke</h1>
         </div>
         <SocialBar />
@@ -190,18 +190,17 @@ export const Home = () => {
       <Hero />
       <About />
 
-      <Box title="Current Favorite Technologies">
+      {/* <Box title="Current Favorite Technologies">
         <div className="grid sm:grid-cols-2 sm:gap-x-5">
           {techStack.map((ti) => (
             <TechItem icon={ti.icon} title={ti.title} level={ti.level} />
           ))}
         </div>
-      </Box>
+      </Box> */}
 
-      <Box title="References and Certificates" id="references">
+      {/* <Box title="References and Certificates" id="references">
         <div className="grid gap-6 sm:grid-cols-2">
-          {/* Aluxus Reference Letter */}
-          <div className="card bg-base-200 shadow">
+          <div className="card bg-base-200">
             <div className="card-body">
               <h3 className="card-title">Aluxus Reference Letter</h3>
               <p className="text-sm opacity-80">
@@ -220,8 +219,7 @@ export const Home = () => {
             </div>
           </div>
 
-          {/* Qualidy Arbeitszeugnis */}
-          <div className="card bg-base-200 shadow">
+          <div className="card bg-base-200">
             <div className="card-body">
               <h3 className="card-title">Qualidy Arbeitszeugnis</h3>
               <p className="text-sm opacity-80">
@@ -240,9 +238,9 @@ export const Home = () => {
             </div>
           </div>
         </div>
-      </Box>
+      </Box> */}
 
-      <div className="flex w-full justify-between">
+      {/* <div className="flex w-full justify-between">
         <button
           onClick={() => skillsRef.current?.openAll()}
           className="btn btn-sm"
@@ -257,7 +255,7 @@ export const Home = () => {
         </button>
       </div>
 
-      <Skills ref={skillsRef} />
+      <Skills ref={skillsRef} /> */}
 
       <Marquee className="z-0 w-[200%]">
         <Suspense fallback={null}>

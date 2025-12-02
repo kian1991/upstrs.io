@@ -12,7 +12,7 @@ export const SocialBar = () => (
       className="btn btn-lg sm:btn-xl btn-ghost btn-circle p-3"
     >
       <svg
-        fill="#181717"
+        fill="#fff"
         role="img"
         width="24"
         height="24"

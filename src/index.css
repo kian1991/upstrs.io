@@ -5,7 +5,7 @@
 }
 
 :root {
-  --custom-accent: #5E9593
+  --custom-accent: #cc95da;
 }
 
 * {
@@ -14,7 +14,7 @@
 
 .highlight {
   font-weight: 600;
-  color: var(--color-accent-content);
+  color: var(--custom-accent);
 }
 
 .link {
